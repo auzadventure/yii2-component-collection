@@ -1,9 +1,12 @@
 ## Install
 1. Copy to widget folder ```/widgets```
+2. Add the namespace reference 
+3. configure the fields 
 
-2. Works with ```field```
-```
+4. Works with ```field```
 SET IT UP with form model
+```
+
 	->field($model,'bloglinkUrl')
            ->widget(\app\widgets\AjaxJsonInput::className(),
             [
