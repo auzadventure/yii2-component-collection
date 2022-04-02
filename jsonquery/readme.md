@@ -12,7 +12,7 @@ Table::find()
   ->andWhere(JsonQuery::objSearch($column,$key,$value))
 ```
 
-- objSearch($attr,$key,$value)
+##objSearch($attr,$key,$value)
 For { } single object
 
 - aSearchValue($attr,$value)
