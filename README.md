@@ -6,7 +6,8 @@ This is a collection  of yii2 components we created and you do not want to compo
 
 ## 1 JSON INPUT WIDGET
 uses Vue.js to help you input a dynamic JSON. Includes delete and add but not save 
-
+<br>
+<br>
 
 ## 1 Mariadb/Mysql Search JSON column
 A simple model that generates the query for activerecord and JSON search. 
