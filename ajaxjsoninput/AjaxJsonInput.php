@@ -22,7 +22,7 @@ class AjaxJsonInput extends InputWidget {
     public function init()
     {
         parent::init();
-        if($this->fields == '') die('you need to set fields');
+        if($this->fields == '') die('AjaxJsonInput: You need to set fields');
 
         $this->options['v-model'] = 'inputStr';
     }
