@@ -9,5 +9,5 @@ uses Vue.js to help you input a dynamic JSON. Includes delete and add but not sa
 <br>
 <br>
 
-## 1 Mariadb/Mysql Search JSON column
+## 2 Mariadb/Mysql Search JSON column
 A simple model that generates the query for activerecord and JSON search. 
