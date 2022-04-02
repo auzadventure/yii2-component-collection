@@ -16,9 +16,14 @@ Table::find()
 
 For `{key:value}` single object `{ key1 : value1, key2: value2 }`
 
+<br><br><br>
+
 #### aSearchValue($attr,$value)
 
 For `array[obj obj]` for any `{ '?' : value }` 
+
+
+<br><br><br>
 
 #### aSearchKeyValue($attr,$key,$value)
 
