@@ -42,9 +42,21 @@ class AjaxJsonInput extends InputWidget {
 
     //Generates the Str for Vue DATA { 'field' : '' }
     public function genFieldString() {
-		$a = array_map([$this,'toKey'],$this->fields);
-    	$a[] = " 'inputA': [] ";
-    	$a[] = " 'inputStr': ''";
+	$a = array_map([$this,'toKey'],$this->fields);
+    	
+        $model = $this->model;
+        $attribute = $this->attribute;
+
+        //has existing value
+        if($model->$attribute != '') {
+            $a[] = " 'inputA': {$model->$attribute}";
+            $a[] = " 'inputStr' : '{$model->$attribute}'";
+        }
+        else {
+            $a[] = " 'inputA': [] ";
+            $a[] = " 'inputStr': ''";
+        }
+        
     	$a = implode(',',$a);
     	return $a; 
     }
