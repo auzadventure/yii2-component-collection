@@ -48,7 +48,7 @@ class AjaxJsonInput extends InputWidget {
         $attribute = $this->attribute;
 
         //has existing value
-        if($model->$attribute != '') {
+        if($model->$attribute !== '') {
             $a[] = " 'inputA': {$model->$attribute}";
             $a[] = " 'inputStr' : '{$model->$attribute}'";
         }
