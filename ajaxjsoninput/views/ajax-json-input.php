@@ -16,7 +16,7 @@ $fieldData = $widget->genFieldString();
 				<button class='btn btn-outline-warning btn-sm'
 						@click.prevent='remove(idx)'
 				> 
-				  <i class='fas fa-minus'></i>
+				  <i class="bi bi-dash-circle"></i>
 				</button>
 			</td>
 		</tr>
@@ -34,7 +34,7 @@ $fieldData = $widget->genFieldString();
 			<?php endforeach ?>
 			<td>
 				<button class='btn btn-outline-primary btn-sm mt-1' @click.prevent='add'>
-					<i class='fas fa-plus'></i>
+					<i class="bi bi-plus-circle"></i>
 				</button>
 			</td>
 		</tr>
@@ -52,6 +52,7 @@ $fieldData = $widget->genFieldString();
 
 <?php
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js',['position'=>$this::POS_HEAD]);
+$this->registerCssFile('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
 
 //From Fields
 $dataString = $widget->genFieldString();
@@ -83,4 +84,15 @@ var vm = new Vue({
 JS;
 $this->registerJS($js,$this::POS_END);
 
+//css
+$css = "
+#{$id} .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 5px 11px 8px;
+  font-size: 16px;
+  cursor: pointer;
+}";
+$this->registerCSS($css,['position'=>$this::POS_HEAD]);
 ?>
