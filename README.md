@@ -11,3 +11,6 @@ uses Vue.js to help you input a dynamic JSON. Includes delete and add but not sa
 
 ## 2 Mariadb/Mysql Search JSON column
 A simple model that generates the query for activerecord and JSON search. 
+
+## 3 Thumbs
+Shrink jpg or png to webp. Then display if the thumbs exist

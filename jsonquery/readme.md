@@ -21,6 +21,7 @@ For `{key:value}` single object `{ key1 : value1, key2: value2 }`
 #### aSearchValue($attr,$value)
 
 For `array[obj obj]` for any `{ '?' : value }` 
+Key is not important
 
 
 <br><br><br>
