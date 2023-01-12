@@ -2,11 +2,11 @@
 
 Allows you to upload and use dropbox like a file manager. Uses CDNs and Vue.js.
 
-Upload files. 
-Preview File through a link.
-Create Folders
-Delete Files
-Rename Files 
+Upload files.  
+Preview File through a link.  
+Create Folders  
+Delete Files  
+Rename Files  
 
 Currently unstable but the code is working. 
 
