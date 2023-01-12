@@ -14,3 +14,6 @@ A simple model that generates the query for activerecord and JSON search.
 
 ## 3 Thumbs
 Shrink jpg or png to webp. Then display if the thumbs exist
+
+## 4 VueDBX
+Use Dropbox SDK api like a file manager. Uses Vue.js 
