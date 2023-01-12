@@ -2,7 +2,7 @@
 
 Allows you to upload and use dropbox like a file manager. Uses CDNs and Vue.js.  
 
-# This is standalone  
+#### This is standalone  
 
 Upload files.  
 Preview File through a link.  
