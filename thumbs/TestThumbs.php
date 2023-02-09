@@ -13,6 +13,8 @@ use yii\helpers\Url;
 
 class TestThumbs extends BaseObject {
 
+	public $thumbPath;
+
 	//Primary Check
 	public function create($path) {
 		Thumbs::create($path); 
@@ -29,6 +31,14 @@ class TestThumbs extends BaseObject {
 		echo "<h2>--Show Thumb Exist--</h2>";
 		$this->testShow($path);
 
+		echo "<h2>--Resize Webp--</h2>";
+		$this->testResize("sample/test_thumb.webp");
+
+
+		/*
+		if($width==200) echo "<br> Yes it works";
+		else echo "<br> resize fails";
+		*/
 		
 	}
 
@@ -77,5 +87,16 @@ class TestThumbs extends BaseObject {
 	
 		echo "The Path {$thumbPath} <br> You should see the image below<br>";
 		echo Html::img($thumbPath,['style'=>'width:200px']);
+		$this->thumbPath = $thumbPath;
+	}
+
+	public function testResize($path) {
+		Thumbs::resizeWebp($path,200,true);
+		
+		$webpPath = Thumbs::getThumbPath($path);
+
+		list($width,$height) = getimagesize($webpPath);
+		if($width==200) echo "<br>Yes Test Resize is working";
+		else echo "<br> Not working";
 	}
 }

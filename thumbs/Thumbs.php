@@ -86,15 +86,9 @@ class Thumbs extends BaseObject {
 	//Path of thumb is without thumbs/images/ 
 	public static function resizeWebp($path,$maxWidth,$isThumb=false) {
 		
-		if($isThumb){
-			$fullPath = Yii::getAlias('@webroot/' . self::ImagePath .'/' . $path);
-		}
-		else {
-			$folder = self::ThumbFolder.'/'.self::ImagePath.'/';
-			$fullPath = Yii::getAlias('@webroot/'.$folder.$path);
-		}
-
-
+		$fullPath = ($isThumb) ? self::getThumbPath($path) : self::getImagePath($path);
+		
+		
 		list($w, $h) = getimagesize($fullPath);
 		if($w < $maxWidth) return;
 
@@ -107,7 +101,7 @@ class Thumbs extends BaseObject {
 		$img = imagecreatefromwebp($fullPath);
 		imagecopyresampled($canvas, $img, 0, 0, 0, 0, $w_, $y_, $w, $h);
 		imagewebp($canvas,$fullPath, 80);
-		imagedestroy($canvas);
+		imagedestroy($canvas);	
 		
 	}
 
