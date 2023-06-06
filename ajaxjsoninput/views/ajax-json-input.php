@@ -5,9 +5,12 @@ $id = $widget->getID();
 $fields = $widget->fields;
 $fieldData = $widget->genFieldString(); 
 
+$field = $widget->field;
+
 
 ?> 
 <div id="<?=$id?>"class="">
+
 	<table class='table table-bordered table-sm'>
 		<tr v-for='(inputRow,idx) in inputA'>
 			<td> {{ idx + 1 }} </td>
@@ -16,10 +19,20 @@ $fieldData = $widget->genFieldString();
 				<button class='btn btn-outline-warning btn-sm'
 						@click.prevent='remove(idx)'
 				> 
-				  <i class="bi bi-dash-circle"></i>
+				  <i class='fas fa-minus'></i>
 				</button>
 			</td>
 		</tr>
+		<!-- Edit Row !--> 
+		<tr v-show="edit_i != ''">
+			<td></td>
+			<td><div class='mt-2 ml-2'>Edit <b>{{ edit_field }}</b></div></td>
+			 <td>
+			 		<input v-model='edit_value' class='form-control'>
+			 </td>
+			 <td><button @click.prevent='edit' class='btn btn-outline-primary btn-sm mt-1 ml-2'><i class='fas fa-check'></i></button></td>
+		</tr>
+
 		<tr>
 			<td style='width:25px'></td>
 			<?php foreach($fields as $field): ?>
@@ -28,18 +41,20 @@ $fieldData = $widget->genFieldString();
 						['placeholder'=>ucfirst($field),
 						'v-model'=>$field,
 						'class'=>'form-control'
-					]);
-					?>
+					]);?>
+
+
 				</td>
 			<?php endforeach ?>
 			<td>
 				<button class='btn btn-outline-primary btn-sm mt-1' @click.prevent='add'>
-					<i class="bi bi-plus-circle"></i>
+					<i class='fas fa-plus'></i>
 				</button>
 			</td>
 		</tr>
 	</table>
-	
+
+
 	<?php 
 	//The field below 
 	if($widget->debug)
@@ -52,7 +67,6 @@ $fieldData = $widget->genFieldString();
 
 <?php
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js',['position'=>$this::POS_HEAD]);
-$this->registerCssFile('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
 
 //From Fields
 $dataString = $widget->genFieldString();
@@ -78,21 +92,32 @@ var vm = new Vue({
   	remove(idx) {
   		this.inputA.splice(idx,1);
   		this.inputStr = JSON.stringify(this.inputA);
+  	},
+
+  	//sets variables and shows edit form
+  	setEdit(i,field) {
+  		this.edit_i = i;
+  		this.edit_field = field; 
+  		if (this.inputA[this.edit_i][this.edit_field] !== undefined) {
+  			this.edit_value = this.inputA[this.edit_i][this.edit_field];
+  		}
+  	},
+
+  	edit() {
+			console.log(this.edit_i)
+  		console.log(this.edit_field)
+  		console.log(this.edit_value)
+  		if (this.edit_i != '' && this.edit_value != '') {
+  			this.inputA[this.edit_i][this.edit_field] = this.edit_value; 
+  			this.edit_i = '';
+  			this.edit_field = '';
+  			this.edit_value = '';
+  			this.inputStr = JSON.stringify(this.inputA);
+  		}
   	}
   }
 })
 JS;
 $this->registerJS($js,$this::POS_END);
 
-//css
-$css = "
-#{$id} .btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 5px 11px 8px;
-  font-size: 16px;
-  cursor: pointer;
-}";
-$this->registerCSS($css,['position'=>$this::POS_HEAD]);
 ?>
