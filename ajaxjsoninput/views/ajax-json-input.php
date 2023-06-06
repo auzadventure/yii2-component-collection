@@ -24,7 +24,7 @@ $field = $widget->field;
 			</td>
 		</tr>
 		<!-- Edit Row !--> 
-		<tr v-show="edit_i != ''">
+		<tr v-show="edit_i !== ''">
 			<td></td>
 			<td><div class='mt-2 ml-2'>Edit <b>{{ edit_field }}</b></div></td>
 			 <td>
