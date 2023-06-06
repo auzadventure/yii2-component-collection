@@ -16,3 +16,6 @@ SET IT UP with form model
         )
         
 ```
+
+5. You can update but clicking the 'edit button'
+6. Need Bootstrap 4.0 for the icons
