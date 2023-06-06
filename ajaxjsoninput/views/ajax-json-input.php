@@ -107,7 +107,7 @@ var vm = new Vue({
 			console.log(this.edit_i)
   		console.log(this.edit_field)
   		console.log(this.edit_value)
-  		if (this.edit_i != '' && this.edit_value != '') {
+  		if (this.edit_i !== '' && this.edit_value != '') {
   			this.inputA[this.edit_i][this.edit_field] = this.edit_value; 
   			this.edit_i = '';
   			this.edit_field = '';
