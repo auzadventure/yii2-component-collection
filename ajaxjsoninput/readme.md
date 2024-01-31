@@ -1,6 +1,10 @@
 ## Install
 1. Copy to widget folder ```/widgets```
-2. Add the namespace reference 
+2. Add the namespace reference. Change the path on
+
+```echo $this->render('@app/widgets/views/ajax-json-input',['widget'=>$this]);```
+to where you put the view file
+
 3. configure the fields 
 
 4. Works with ```field```
