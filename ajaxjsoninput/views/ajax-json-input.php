@@ -19,7 +19,7 @@ $field = $widget->field;
 				<button class='btn btn-outline-warning btn-sm'
 						@click.prevent='remove(idx)'
 				> 
-				  <i class='fas fa-minus'></i>
+				  <i class='bi bi-dash'></i>
 				</button>
 			</td>
 		</tr>
@@ -30,7 +30,7 @@ $field = $widget->field;
 			 <td>
 			 		<input v-model='edit_value' class='form-control'>
 			 </td>
-			 <td><button @click.prevent='edit' class='btn btn-outline-primary btn-sm mt-1 ml-2'><i class='fas fa-check'></i></button></td>
+			 <td><button @click.prevent='edit' class='btn btn-outline-primary btn-sm mt-1 ml-2'><i class='bi bi-check'></i></button></td>
 		</tr>
 
 		<tr>
@@ -48,7 +48,7 @@ $field = $widget->field;
 			<?php endforeach ?>
 			<td>
 				<button class='btn btn-outline-primary btn-sm mt-1' @click.prevent='add'>
-					<i class='fas fa-plus'></i>
+					<i class="bi bi-plus-circle"></i>
 				</button>
 			</td>
 		</tr>
@@ -66,7 +66,7 @@ $field = $widget->field;
 </div>
 
 <?php
-$this->registerJsFile('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js',['position'=>$this::POS_HEAD]);
+$this->registerJsFile('https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js',['position'=>$this::POS_HEAD]);
 
 //From Fields
 $dataString = $widget->genFieldString();

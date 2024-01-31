@@ -5,7 +5,11 @@
 ```echo $this->render('@app/widgets/views/ajax-json-input',['widget'=>$this]);```
 to where you put the view file
 
-3. configure the fields 
+Add Bootstrap Icons To your View file, where you want to use the widget 
+```$this->registerCSS("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");```
+
+3. configure the fields
+
 
 4. Works with ```field```
 SET IT UP with form model
